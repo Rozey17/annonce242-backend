@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ad_sub_categories",
+  "info": {
+    "name": "Ad SubCategory",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "ad_category": {
+      "model": "ad-category",
+      "via": "ad_sub_categories"
+    },
+    "ads": {
+      "via": "ad_sub_category",
+      "collection": "ad"
+    }
+  }
+}
